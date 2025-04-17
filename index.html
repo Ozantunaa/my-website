@@ -3,113 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoodStarApps</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <title>GoodStar Apps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --accent-color: #FF375F;
+      --muted-color: #888888;
+      --secondary-color: #121212;
+    }
+    
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f1a1c 0%, #1a0f1c 100%);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-    }
-    header nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      background: linear-gradient(90deg, #fca311, #ff006e, #8338ec, #3a86ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .main {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 20px;
     }
-    .main h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      max-width: 700px;
-      line-height: 1.2;
-      background: linear-gradient(90deg, #fca311, #ff006e, #8338ec, #3a86ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    
+    header {
+      padding: 40px 0;
     }
-    .main p {
-      font-size: 1.1rem;
-      margin-top: 20px;
-      max-width: 600px;
-      opacity: 0.85;
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
-    .cta-button, .contact-button {
-      margin-top: 40px;
-      padding: 15px 30px;
-      background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
-      border: none;
-      color: white;
+    
+    .logo span {
+      color: var(--accent-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .badge {
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      display: inline-block;
+      padding: 8px 16px;
       border-radius: 30px;
-      font-size: 1rem;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    
+    .hero-title {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      letter-spacing: -2px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-description {
+      font-size: 16px;
+      color: var(--muted-color);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-button {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      font-size: 16px;
       font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 8px;
+      border: none;
       cursor: pointer;
-      transition: transform 0.3s;
     }
-    .cta-button:hover, .contact-button:hover {
-      transform: scale(1.05);
+    
+    /* Visual Section */
+    .visual-section {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
     }
-    .how-it-works {
-      margin: 40px 0;
-      font-size: 0.9rem;
-      opacity: 0.7;
+    
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
     }
-    .how-it-works::before {
-      content: "\25CF ";
-      color: #6a5acd;
-      margin-right: 5px;
+    
+    .object {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
     }
-    @media (max-width: 768px) {
-      .main h1 {
-        font-size: 2.2rem;
+    
+    .object-1 {
+      background-color: #FF375F;
+      top: 20%;
+      right: 20%;
+    }
+    
+    .object-2 {
+      background-color: #30D158;
+      top: 70%;
+      left: 25%;
+    }
+    
+    .object-3 {
+      background-color: #0A84FF;
+      top: 30%;
+      left: 15%;
+    }
+    
+    .object-4 {
+      background-color: #FFD60A;
+      bottom: 25%;
+      right: 15%;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 100px 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    .feature-card {
+      background-color: var(--secondary-color);
+      padding: 40px;
+      border-radius: 8px;
+    }
+    
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    
+    .feature-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .feature-desc {
+      font-size: 16px;
+      color: var(--muted-color);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .footer-text {
+      color: var(--muted-color);
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    
+    .email-copy {
+      color: var(--text-color);
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-block;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--accent-color);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 60px;
       }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 50px;
+      }
+      
+      .hero-subtitle {
+        font-size: 20px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: var(--text-color);
+      padding: 15px 20px;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .notification.show {
+      display: block;
+      animation: fadeInOut 3s forwards;
+    }
+    
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="logo">GoodStarApps</div>
-    
+    <div class="container">
+      <div class="logo">GoodStar<span>Apps</span></div>
+    </div>
   </header>
 
-  <div class="main">
-    <h1>Launch Next-Gen <br> Apps With <br> GoodStarApps</h1>
-    <p>We create stunning MVPs and tools that help you go from idea to reality — fast. Trusted by creators, loved by users.</p>
-    <button class="cta-button" onclick="copyEmail()">📩 Contact Us</button>
-    <div class="how-it-works">Click the button above to copy our email!</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Mobile App Development</div>
+      <h1 class="hero-title">Build. Optimize. Succeed.</h1>
+      <h2 class="hero-subtitle">Expert MVP development & App Store Optimization</h2>
+      <p class="hero-description">We help startups and businesses transform ideas into market-ready products with strategic ASO that drives downloads.</p>
+      <button class="cta-button" onclick="copyEmail()">Contact Us</button>
+    </div>
+  </section>
+
+  <!-- Visual Section -->
+  <section class="visual-section">
+    <div class="orbit">
+      <div class="object object-1"></div>
+      <div class="object object-2"></div>
+      <div class="object object-3"></div>
+      <div class="object object-4"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">◆</div>
+          <h3 class="feature-title">MVP Development</h3>
+          <p class="feature-desc">Transforming ideas into functional products with only the essential features.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">◆</div>
+          <h3 class="feature-title">App Store Optimization</h3>
+          <p class="feature-desc">Strategic ASO to maximize visibility and drive organic downloads.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">◆</div>
+          <h3 class="feature-title">User-Centered Design</h3>
+          <p class="feature-desc">Intuitive and engaging experiences that keep users coming back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="logo">GoodStar<span>Apps</span></div>
+      <p class="footer-text">
+        Contact us: <span class="email-copy" onclick="copyEmail()">goodstarapps@gmail.com</span>
+      </p>
+    </div>
+  </footer>
+  
+  <div class="notification" id="notification">
+    Email copied to clipboard
   </div>
 
   <script>
     function copyEmail() {
       const email = "goodstarapps@gmail.com";
-      navigator.clipboard.writeText(email).then(() => {
-        alert("Email copied: " + email);
-      });
+      navigator.clipboard.writeText(email);
+      
+      const notification = document.getElementById('notification');
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
     }
   </script>
 </body>
